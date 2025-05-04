@@ -1,17 +1,27 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Cinzel, Manrope } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-cinzel",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-manrope",
+});
 
 export const metadata = {
   title: "Relica Collectibles",
   description: "Because every pack tells a story.",
-  metadataBase: new URL("https://relica.no"),
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico?v=2", // You’ve got this already
   },
+  metadataBase: new URL("https://relica.no"),
   openGraph: {
     title: "Relica Collectibles",
     description: "Because every pack tells a story.",
@@ -35,16 +45,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`${cinzel.variable} ${manrope.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans bg-black text-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="w-full flex items-center justify-center py-6">
             <Image
               src="/images/logo-temp.png"
               alt="Relica logo"
-              width={120}
-              height={120}
-              className="object-contain"
+              width={96}
+              height={96}
+              className="rounded-full object-cover"
               priority
             />
           </header>
