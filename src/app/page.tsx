@@ -1,12 +1,10 @@
-// import ProductCard from "@/components/product/ProductCard";
-// import { demoProducts } from "@/lib/products";
-
+import Image from "next/image";
 
 const tcgRows = [
-  { name: "Magic: The Gathering", src: "/images/tcg/mtg-row.png.png" },
-  { name: "Riftbound", src: "/images/tcg/riftbound-row.png.jpg" },
-  { name: "One Piece", src: "/images/tcg/onepiece-row.png.jpg" },
-  { name: "Pokémon", src: "/images/tcg/pokemon-row.png.png" },
+  { name: "Magic: The Gathering", src: "/images/tcg/mtg-row.png" },
+  { name: "Riftbound", src: "/images/tcg/riftbound-row.jpg" },
+  { name: "One Piece", src: "/images/tcg/onepiece-row.jpg" },
+  { name: "Pokémon", src: "/images/tcg/pokemon-row.png" },
 ];
 
 export default function Home() {
@@ -20,11 +18,13 @@ export default function Home() {
       </section>
 
       <section className="w-full mt-16 space-y-10 max-w-5xl">
-        {tcgRows.map((tcg) => (
-          <div key={tcg.name} className="flex justify-center">
-            <img
-              src={tcg.src}
-              alt={tcg.name}
+        {tcgRows.map(({ name, src }) => (
+          <div key={name} className="flex justify-center">
+            <Image
+              src={src}
+              alt={name}
+              width={600}
+              height={120}
               className="rounded-lg shadow hover:scale-105 transition-transform w-full max-w-xl"
             />
           </div>
