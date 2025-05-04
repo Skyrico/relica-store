@@ -1,5 +1,6 @@
-import ProductCard from "@/components/product/ProductCard";
-import { demoProducts } from "@/lib/products";
+// import ProductCard from "@/components/product/ProductCard";
+// import { demoProducts } from "@/lib/products";
+
 
 const tcgRows = [
   { name: "Magic: The Gathering", src: "/images/tcg/mtg-row.png.png" },
