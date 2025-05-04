@@ -1,4 +1,9 @@
+// src/app/page.tsx
 import Image from "next/image";
+
+// If needed later:
+// import ProductCard from "@/components/product/ProductCard";
+// import { demoProducts } from "@/lib/products";
 
 const tcgRows = [
   { name: "Magic: The Gathering", src: "/images/tcg/mtg-row.png" },
@@ -17,15 +22,16 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="w-full mt-16 space-y-10 max-w-5xl">
-        {tcgRows.map(({ name, src }) => (
-          <div key={name} className="flex justify-center">
+      {/* 💡 Replace the old image block with this updated one */}
+      <section className="w-full mt-16 space-y-10 max-w-5xl px-4">
+        {tcgRows.map((tcg) => (
+          <div key={tcg.name} className="flex justify-center">
             <Image
-              src={src}
-              alt={name}
+              src={tcg.src}
+              alt={tcg.name}
               width={600}
-              height={120}
-              className="rounded-lg shadow hover:scale-105 transition-transform w-full max-w-xl"
+              height={200}
+              className="rounded-lg shadow-md object-contain"
             />
           </div>
         ))}
