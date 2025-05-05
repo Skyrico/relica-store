@@ -2,6 +2,7 @@ import "./globals.css";
 import { Cinzel, Manrope } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import Image from "next/image";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -19,9 +20,8 @@ export const metadata = {
   title: "Relica Collectibles",
   description: "Because every pack tells a story.",
   icons: {
-    icon: "/images/favicon.png", // ✅ PUBLIC-relative URL
+    icon: "/images/favicon.png",
   },
-
   metadataBase: new URL("https://relica.no"),
   openGraph: {
     title: "Relica Collectibles",
@@ -51,18 +51,26 @@ export default function RootLayout({
       className={`${cinzel.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans bg-black text-white">
+      <body className="relative min-h-screen w-screen font-sans bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header className="w-full flex items-center justify-center py-4">
+          {/* Floating top-right theme toggle */}
+          <div className="fixed top-4 right-4 z-50">
+            <ThemeToggle />
+          </div>
+
+          {/* Centered logo */}
+          <header className="w-full flex items-center justify-center py-2">
             <Image
               src="/images/relica-logo.png"
               alt="Relica logo"
-              width={320}
-              height={320}
+              width={240}
+              height={240}
               className="object-contain"
               priority
             />
           </header>
+
+          {/* Page content */}
           {children}
         </ThemeProvider>
       </body>
