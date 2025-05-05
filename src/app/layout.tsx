@@ -19,8 +19,9 @@ export const metadata = {
   title: "Relica Collectibles",
   description: "Because every pack tells a story.",
   icons: {
-    icon: "/favicon.ico?v=2", // You’ve got this already
+    icon: "/images/favicon.png", // ✅ PUBLIC-relative URL
   },
+
   metadataBase: new URL("https://relica.no"),
   openGraph: {
     title: "Relica Collectibles",
@@ -52,13 +53,13 @@ export default function RootLayout({
     >
       <body className="font-sans bg-black text-white">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header className="w-full flex items-center justify-center py-6">
+          <header className="w-full flex items-center justify-center py-4">
             <Image
-              src="/images/logo-temp.png"
+              src="/images/relica-logo.png"
               alt="Relica logo"
-              width={96}
-              height={96}
-              className="rounded-full object-cover"
+              width={320}
+              height={320}
+              className="object-contain"
               priority
             />
           </header>
